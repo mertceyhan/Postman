@@ -48,7 +48,8 @@ dependencies {
 You can sent to SMS with "Emulator > Extended controls > Phone > SMS message" after subscribe to Postman
 Example SMS; Please enter the following code to confirm your mobile number: 8751
 
-<p align="center"> <img src="https://i.ibb.co/mNbtJN8/postman-screenshot.jpg" alt="postman-screenshot</p>
+<p align="center"> <img src="https://i.ibb.co/mNbtJN8/postman-screenshot.jpg" alt="postman"> </p>
+
 
 ## Credits
 Thanks to <a href="https://dribbble.com/IanSui">IanSui</a> for this beautiful illustration.
