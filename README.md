@@ -40,7 +40,7 @@ allprojects {
 }
 
 dependencies {
-    implementation 'com.github.mertceyhan:Postman:1.0.0'
+    implementation 'com.github.mertceyhan:Postman:1.0.1'
 }
 ```
 
