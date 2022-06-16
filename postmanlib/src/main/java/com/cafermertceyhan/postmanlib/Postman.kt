@@ -1,5 +1,6 @@
 package com.cafermertceyhan.postmanlib
 
+import android.annotation.SuppressLint
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.FragmentManager
@@ -22,6 +23,7 @@ class Postman {
         startPostmanFragment(fragment.childFragmentManager)
     }
 
+    @SuppressLint("CheckResult")
     fun message(): Observable<String?> {
         return Observable.fromPublisher<String> { subscriber ->
             postmanFragment?.getMessage()?.subscribe {
@@ -30,7 +32,6 @@ class Postman {
                 if (getJustVerificationCode) {
                     message = fetchVerificationCode(message)
                 }
-
                 subscriber.onNext(message)
                 subscriber.onComplete()
             }
@@ -63,9 +64,9 @@ class Postman {
 
         postmanFragment?.let {
             fragmentManager
-                    .beginTransaction()
-                    .add(it, PostmanFragment.TAG)
-                    .commitNow()
+                .beginTransaction()
+                .add(it, PostmanFragment.TAG)
+                .commitNow()
         }
     }
 }
