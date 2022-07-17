@@ -2,14 +2,18 @@ package com.cafermertceyhan.postman
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.cafermertceyhan.postman.databinding.ActivityMainBinding
 import com.cafermertceyhan.postmanlib.Postman
-import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
+    private lateinit var binding: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
 
         /*
         * You can sent to SMS with Emulator > Extended controls > Phone > SMS message
@@ -26,10 +30,10 @@ class MainActivity : AppCompatActivity() {
                 val chars = verificationCode?.toCharArray()
 
                 if (chars?.size == 4) {
-                    etVerificationCode1.setText(chars[0].toString())
-                    etVerificationCode2.setText(chars[1].toString())
-                    etVerificationCode3.setText(chars[2].toString())
-                    etVerificationCode4.setText(chars[3].toString())
+                    binding.etVerificationCode1.setText(chars[0].toString())
+                    binding.etVerificationCode2.setText(chars[1].toString())
+                    binding.etVerificationCode3.setText(chars[2].toString())
+                    binding.etVerificationCode4.setText(chars[3].toString())
                 }
             }
     }

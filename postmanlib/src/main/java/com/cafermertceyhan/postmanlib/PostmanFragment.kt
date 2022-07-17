@@ -32,6 +32,7 @@ internal class PostmanFragment : Fragment() {
         unregisterToPostmanBroadcastReceiver()
     }
 
+    @Deprecated("Deprecated in Java")
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         when (requestCode) {
             PostmanBroadcastReceiver.REQUEST_USER_CONSENT -> {
@@ -52,14 +53,17 @@ internal class PostmanFragment : Fragment() {
             val senderNumber = arguments?.getString(KEY_SENDER_NUMBER)
 
             SmsRetriever.getClient(it)
-                    .startSmsUserConsent(senderNumber)
-                    .addOnSuccessListener { }
-                    .addOnFailureListener { }
+                .startSmsUserConsent(senderNumber)
+                .addOnSuccessListener { }
+                .addOnFailureListener { }
         }
     }
 
     private fun registerToPostmanBroadcastReceiver() {
-        activity?.registerReceiver(postmanBroadcastReceiver, IntentFilter(SmsRetriever.SMS_RETRIEVED_ACTION))
+        activity?.registerReceiver(
+            postmanBroadcastReceiver,
+            IntentFilter(SmsRetriever.SMS_RETRIEVED_ACTION)
+        )
     }
 
     private fun unregisterToPostmanBroadcastReceiver() {
